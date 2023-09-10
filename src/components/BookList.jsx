@@ -39,7 +39,7 @@ const BookList = () => {
   }, []);
 
   return (
-    <div className={styles.book}>
+    <>
       <Breadcrumb current={"すべて"} isTop={true} />
       {loading ? (
         <Loading />
@@ -74,7 +74,7 @@ const BookList = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
