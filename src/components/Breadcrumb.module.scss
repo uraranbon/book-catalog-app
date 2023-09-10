@@ -1,0 +1,47 @@
+@use "../styles/_mixin.scss" as *;
+@use "../styles/_setting.scss" as *;
+
+.breadcrumb {
+  background-color: var(--white);
+  padding: 10px 30px;
+  border-bottom: 1px solid var(--gray-light);
+  @include sp {
+    padding: 10px;
+  }
+}
+
+.list {
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  display: block;
+  margin-right: 10px;
+  @include sp {
+    width: 12px;
+    height: 12px;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 12px;
+    height: 12px;
+    border-left: 1px solid var(--black);
+    border-bottom: 1px solid var(--black);
+    transform: rotate(45deg);
+    @include sp {
+      left: 4px;
+      width: 10px;
+      height: 10px;
+    }
+  }
+}

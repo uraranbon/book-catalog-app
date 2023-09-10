@@ -3,6 +3,7 @@ import { url } from "../const";
 import { Link } from "react-router-dom";
 import styles from "./BookList.module.scss";
 import Loading from "./Loading";
+import Breadcrumb from "./Breadcrumb";
 
 const BookList = () => {
   const [loading, setLoading] = useState(true);
@@ -39,6 +40,7 @@ const BookList = () => {
 
   return (
     <div className={styles.book}>
+      <Breadcrumb current={"すべて"} isTop={true} />
       {loading ? (
         <Loading />
       ) : (
