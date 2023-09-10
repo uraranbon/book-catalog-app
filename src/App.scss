@@ -19,7 +19,7 @@ body {
 }
 
 html {
-  background: #fff;
+  background: var(--white);
   font-size: 14px !important;
   line-height: 1.6;
   word-break: break-all;
@@ -29,8 +29,8 @@ html {
 }
 
 body {
-  color: var(--black) !important;
-  background: var(--white) !important;
+  color: var(--black);
+  background: var(--white);
   margin: 0;
 }
 
@@ -63,7 +63,7 @@ p {
 }
 
 a {
-  color: #222;
+  color: var(--black);
   text-decoration: none;
 }
 
@@ -80,6 +80,7 @@ button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  color: var(--black);
 }
 
 input,
@@ -176,9 +177,22 @@ dd {
 // color
 :root {
   --black: #333;
+  --black-rgb: 0, 0, 0;
   --white: #fff;
   --red: #ff223c;
   --gray: #777;
   --gray-light: #f2f2f2;
   --gray-dark: #ddd;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --black: #eee;
+    --black-rgb: 238, 238, 238;
+    --white: #333;
+    --red: #fc6767;
+    --gray: #ccc;
+    --gray-light: #3b3b3b;
+    --gray-dark: #555;
+  }
 }
