@@ -1,0 +1,32 @@
+@use './setting.scss' as s;
+
+// メディアクエリ
+@mixin pc {
+  @media only screen and (min-width: #{s.$bp-pc}) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media only screen and (max-width: #{s.$bp-sp}) {
+    @content;
+  }
+}
+
+@mixin min($width) {
+  @media only screen and (min-width: #{$width}px) {
+    @content;
+  }
+}
+
+@mixin max($width) {
+  @media only screen and (max-width: #{$width}px) {
+    @content;
+  }
+}
+
+// settingで指定した幅を基準にvwを返す
+@function vw($size, $viewport: s.$vw_standard_width) {
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}
