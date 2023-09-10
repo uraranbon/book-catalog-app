@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { url } from "../const";
 import { Link } from "react-router-dom";
 import styles from "./BookList.module.scss";
+import Loading from "./Loading";
 
 const BookList = () => {
   const [loading, setLoading] = useState(true);
@@ -39,7 +40,7 @@ const BookList = () => {
   return (
     <div className={styles.book}>
       {loading ? (
-        <p>ロード中…</p>
+        <Loading />
       ) : (
         <div className="outer">
           <div className="inner">
