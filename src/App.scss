@@ -130,6 +130,9 @@ main {
 
 .outer {
   padding: 20px 0;
+  @include sp {
+    padding: 10px 0;
+  }
 }
 
 .inner {
@@ -154,7 +157,7 @@ dd {
 }
 
 .bg-gray {
-  background-color: #f1f1f1;
+  background-color: var(--gray-light);
 }
 
 // color
@@ -162,5 +165,7 @@ dd {
   --black: #333;
   --white: #fff;
   --red: #ff223c;
+  --gray-light: #f1f1f1;
+  --gray-dark: #ddd;
 }
 
