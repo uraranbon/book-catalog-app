@@ -46,22 +46,4 @@
       background-color: var(--gray-dark);
     }
   }
-  .item {
-    flex-shrink: 0;
-  }
-  a {
-    display: block;
-    transition: opacity 0.3s;
-    box-shadow: 0px 0px 10px rgba(var(--black-rgb), 0.3);
-    &:hover {
-      @include pc {
-        opacity: 0.7;
-      }
-    }
-  }
-  img {
-    height: 150px;
-    width: auto;
-    object-fit: cover;
-  }
 }

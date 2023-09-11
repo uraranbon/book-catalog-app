@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { url } from "../const";
-import { Link } from "react-router-dom";
 import styles from "./BookList.module.scss";
 import Loading from "./Loading";
 import Breadcrumb from "./Breadcrumb";
+import BookItem from "./BookItem";
 
 const BookList = () => {
   const [loading, setLoading] = useState(true);
@@ -58,13 +58,7 @@ const BookList = () => {
                     </h2>
                     <div className={styles.list}>
                       {subCategory.book_list.map((book) => (
-                        <Link
-                          to={`/detail/${book.id_book}`}
-                          key={book.id_book}
-                          className={styles.item}
-                        >
-                          <img src={book.img_url} alt={book.name_book} />
-                        </Link>
+                        <BookItem key={book.id_book} book={book} />
                       ))}
                     </div>
                   </div>
