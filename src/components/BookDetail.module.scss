@@ -97,12 +97,6 @@
   &.red {
     background-color: var(--red);
     color: var(--white);
-    &:hover {
-      @include pc {
-        color: var(--red);
-        background-color: var(--white);
-      }
-    }
   }
   &:hover {
     @include pc {

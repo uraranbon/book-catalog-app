@@ -6,10 +6,24 @@ import IconButton from "./IconButton";
 import Breadcrumb from "./Breadcrumb";
 import Loading from "./Loading";
 
-const BookDetail = () => {
+//redux
+import { connect } from "react-redux";
+import { addToMyBooks, removeFromMyBooks } from "../actions";
+
+const BookDetail = ({ mybooks, addToMyBooks, removeFromMyBooks }) => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [bookData, setBookData] = useState(null);
+
+  //redux
+  const isMyBooks = mybooks.includes(id);
+  const toggleFavorite = () => {
+    if (isMyBooks) {
+      removeFromMyBooks(id);
+    } else {
+      addToMyBooks(id);
+    }
+  };
 
   useEffect(() => {
     const fetchBookDetail = async () => {
@@ -78,10 +92,12 @@ const BookDetail = () => {
                     {bookData.publisher}
                   </div>
                   <div className={styles["button-wrap"]}>
-                    <button className={styles.button}>MyBooks追加</button>
-                    <button className={`${styles.button} ${styles.red}`}>
-                      読み放題中
+                    <button onClick={toggleFavorite} className={styles.button}>
+                      MyBooks{isMyBooks ? <span>削除</span> : <p>追加</p>}
                     </button>
+                    <div className={`${styles.button} ${styles.red}`}>
+                      読み放題中
+                    </div>
                   </div>
                 </div>
               </div>
@@ -102,4 +118,10 @@ const BookDetail = () => {
   );
 };
 
-export default BookDetail;
+const mapStateToProps = (state) => ({
+  mybooks: state.mybooks,
+});
+
+export default connect(mapStateToProps, { addToMyBooks, removeFromMyBooks })(
+  BookDetail
+);
