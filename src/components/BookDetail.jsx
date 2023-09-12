@@ -92,10 +92,13 @@ const BookDetail = ({ mybooks, addToMyBooks, removeFromMyBooks }) => {
                     {bookData.publisher}
                   </div>
                   <div className={styles["button-wrap"]}>
-                    <button onClick={toggleFavorite} className={styles.button}>
+                    <button
+                      onClick={toggleFavorite}
+                      className={isMyBooks ? styles.active : styles.inactive}
+                    >
                       MyBooks{isMyBooks ? <span>削除</span> : <p>追加</p>}
                     </button>
-                    <div className={`${styles.button} ${styles.red}`}>
+                    <div className={styles.active}>
                       読み放題中
                     </div>
                   </div>
